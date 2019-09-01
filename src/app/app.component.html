@@ -1,3 +1,35 @@
 header
+<div class="app-main-container">
+  <!-- <mat-toolbar>
+    <span>
+      <strong class="app-main-title">
+        <span class="main">SCS</span>
+        <span class="sub">STAR CHAMPIONSHIP SERIES</span>
+      </strong>
+    </span>
+    <button mat-button [routerLink]="[ '/home' ]">
+      <strong class="app-sub-title">
+        HOME
+      </strong>
+    </button>
+    <button mat-button [routerLink]="[ '/matches' ]">
+      <strong class="app-sub-title">
+        MATCHES
+      </strong>
+    </button>
+    <button mat-button [routerLink]="[ '/standings' ]">
+      <strong class="app-sub-title">
+        STANDINGS
+      </strong>
+    </button>
+  </mat-toolbar> -->
 
-<router-outlet></router-outlet>
+  <div class="page-container">
+    <router-outlet></router-outlet>
+
+    <ng-container *ngIf="isRoutLoading">
+      loading...
+      <!-- <mat-spinner class="spinner-position" color="accent"></mat-spinner> -->
+    </ng-container>
+  </div>
+</div>
