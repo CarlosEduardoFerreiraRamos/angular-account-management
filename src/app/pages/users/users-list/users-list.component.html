@@ -1,1 +1,26 @@
-<p>users-list works!</p>
+
+<app-form (valueChanges)="onSearch($event)" (formSubmit)="onSearch($event)">
+  <div class="form-field-container">
+    <mat-form-field class="form-text-search">
+      <input ngModel matInput type="text" name="filter" id="filter" placeholder="Search users">
+    </mat-form-field>
+    <button type="submit" title="Search" mat-icon-button>
+      <mat-icon>search</mat-icon>
+    </button>
+    <button type="button" title="create" mat-icon-button>
+      <mat-icon>search</mat-icon>
+    </button>
+  </div>
+</app-form>
+
+<ng-container *ngIf="isUserAdmin else nonAdminList">
+  <app-list [displayedColumns]="['id','name','email', 'account', 'agency','balance']" [data]="users$ | async"  (rowClick)="onRowClick($event)">
+  </app-list>
+</ng-container>
+
+<ng-template #nonAdminList>
+  <app-list [displayedColumns]="['id','name','email', 'account', 'agency','balance']" [data]="users$ | async"></app-list>
+</ng-template>
+
+
+

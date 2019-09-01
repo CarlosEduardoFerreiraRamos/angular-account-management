@@ -8,8 +8,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
   declarations: [FormComponent],
   imports: [
     CommonModule,
-    ReactiveFormsModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   exports: [FormComponent]
 })

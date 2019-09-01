@@ -8,7 +8,8 @@ export class MainGuardService implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
 
-    this.router.navigate(['login']);
-    return false;
+    // this.router.navigate(['login']);
+    // return   false;
+    return true;
   }
 }

@@ -1,0 +1,16 @@
+.form-field-container {
+    margin: 0 auto;
+    width: 50%;
+
+    // button {
+    //     color: $app-gray;
+    // }
+}
+
+.mat-form-field {
+    margin: 0px 14px;
+
+    &.form-text-search {
+        width: 380px;
+    }
+}

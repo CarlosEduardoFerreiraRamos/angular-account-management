@@ -5,11 +5,11 @@ import { delay } from 'rxjs/operators';
 import { Account } from 'src/app/models';
 
 const USERS_LIST = [
-  {id: 1, name: 'Erica', email: 'erica@gmail.com', account: '12345-1', agency: '12', document: 'SH1', balancy: 0},
-  {id: 2, name: 'Tomas', email: 'tomas@gmail.com', account: '54321-6', agency: '7', document: 'HH3', balancy: 0},
-  {id: 3, name: 'Bruna', email: 'bruna@gmail.com', account: '26354-0', agency: '13', document: 'D7', balancy: 0},
-  {id: 4, name: 'Leandro', email: 'leandro@gmail.com', account: '87956-5', agency: '2', document: 'D20', balancy: 0},
-  {id: 0, name: 'admin', email: 'admin', account: '0-0', agency: '0', document: '0', balancy: 0, admin: true},
+  {id: 1, name: 'Erica', email: 'erica@gmail.com', account: '12345-1', agency: '12', document: 'SH1', balance: 0},
+  {id: 2, name: 'Tomas', email: 'tomas@gmail.com', account: '54321-6', agency: '7', document: 'HH3', balance: 0},
+  {id: 3, name: 'Bruna', email: 'bruna@gmail.com', account: '26354-0', agency: '13', document: 'D7', balance: 0},
+  {id: 4, name: 'Leandro', email: 'leandro@gmail.com', account: '87956-5', agency: '2', document: 'D20', balance: 0},
+  {id: 0, name: 'admin', email: 'admin', account: '0-0', agency: '0', document: '0', balance: 0, admin: true},
 ];
 
 @Injectable()
@@ -62,9 +62,9 @@ export class MockBackEndService implements HttpInterceptor {
       .filter( a => {
         let isSimilar = false;
         for (const key in a) {
-          if (a.hasOwnProperty(key)) {
+          if (a.hasOwnProperty(key) && !isSimilar) {
             const value = a[key];
-            isSimilar = `${value}`.toLowerCase().includes(filter);
+            isSimilar = `${value}`.toLowerCase().includes(filter.filter.toLowerCase());
           }
         }
         return isSimilar;

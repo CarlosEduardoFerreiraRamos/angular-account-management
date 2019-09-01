@@ -4,7 +4,7 @@ export class Account extends User {
   account: string;
   agency: string;
   documentId: string;
-  balancy: number;
+  balance: number;
   admin: boolean;
   constructor(data?: any) {
     super(data);
@@ -12,7 +12,7 @@ export class Account extends User {
       this.account = data.account;
       this.agency = data.agency;
       this.documentId = data.documentId;
-      this.balancy = data.balancy;
+      this.balance = data.balance;
       this.admin = !!data.admin;
     }
   }

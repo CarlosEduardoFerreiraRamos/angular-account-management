@@ -8,8 +8,11 @@ export class UserService {
 
   constructor(private _http: HttpClient) { }
 
-  public getAll(filters?: any): Observable<Account[]> {
-    const path = `${this.basePath}/list`;
+  public getAll(filter?: string): Observable<Account[]> {
+    let path = `${this.basePath}/list`;
+    if (filter) {
+      path += `?filter=${filter}`
+    }
     return this._http.get<Account[]>(path);
   }
 
