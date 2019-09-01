@@ -4,7 +4,6 @@ import { MockBackEndService } from './mock-back-end.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
-
 @NgModule({
   declarations: [],
   imports: [
