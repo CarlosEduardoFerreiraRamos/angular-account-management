@@ -24,7 +24,11 @@ export class AuthService {
   public login({email, password}: {email: string, password: string}): Observable<AuthUser> {
     const path = `${this.basePath}?pass=${password}?email=${email}`;
     return this._http.get<AuthUser>(path)
-      .pipe(tap( auth => this.authUser = new AuthUser(auth)));
+      .pipe(tap( auth => {
+          this.authUser = new AuthUser(auth);
+          this.token = this.authUser.token;
+        }
+      ));
   }
 
   public isTokenValid(): Observable<boolean> {

@@ -5,6 +5,7 @@ export class Account extends User {
   agency: string;
   documentId: string;
   balancy: number;
+  admin: boolean;
   constructor(data?: any) {
     super(data);
     if (data) {
@@ -12,6 +13,7 @@ export class Account extends User {
       this.agency = data.agency;
       this.documentId = data.documentId;
       this.balancy = data.balancy;
+      this.admin = !!data.admin;
     }
   }
 }
