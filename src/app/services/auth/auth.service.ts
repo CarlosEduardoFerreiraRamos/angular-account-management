@@ -21,13 +21,13 @@ export class AuthService {
 
   constructor(private _http: HttpClient) { }
 
-  login({email, password}: {email: string, password: string}): Observable<AuthUser> {
+  public login({email, password}: {email: string, password: string}): Observable<AuthUser> {
     const path = `${this.basePath}?pass=${password}?email=${email}`;
     return this._http.get<AuthUser>(path)
       .pipe(tap( auth => this.authUser = new AuthUser(auth)));
   }
 
-  isTokenValid(): Observable<boolean> {
+  public isTokenValid(): Observable<boolean> {
     if (this.token) {
       const path = `${this.basePath}/auth/chack?token=${this.token}`;
       return this._http.get<boolean>(path);
@@ -35,15 +35,15 @@ export class AuthService {
     return of(false);
   }
 
-  get basePath(): string {
-    return `${environment.api}/auth`;
-  }
-
-  set token(t: string) {
+  private set token(t: string) {
     localStorage.setItem(this.TOKEN_KEY, t);
   }
 
-  get token(): string {
+  private get token(): string {
     return localStorage.getItem(this.TOKEN_KEY);
+  }
+
+  private get basePath(): string {
+    return `${environment.api}/auth`;
   }
 }
