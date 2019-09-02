@@ -1,8 +1,9 @@
 .card-container {
-    max-width: 400px;
-    margin: 0 auto;
-    text-align: center;
-}
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 75%;
+  }
 
 .form-field-container {
     margin: 0 6px;
