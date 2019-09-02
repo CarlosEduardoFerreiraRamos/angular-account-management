@@ -8,9 +8,10 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { GuardServiceModule } from './services/guard/guard-service.module';
 import { HttpHandlersServiceModule } from './services/http-handlers/http-handlers-service.module';
-import { MatCardModule, MatInputModule, MatButtonModule, MatIconModule } from '@angular/material';
+import { MatCardModule, MatInputModule, MatButtonModule, MatIconModule, MatToolbarModule, MatMenuModule } from '@angular/material';
 import { FormModule } from './components/form/form.module';
 import { FormsModule } from '@angular/forms';
+import { LoadingModule } from './components/loading/loading.module';
 
 @NgModule({
   declarations: [
@@ -24,10 +25,13 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     GuardServiceModule,
     HttpHandlersServiceModule,
+    LoadingModule,
+    MatToolbarModule,
     FormModule,
     FormsModule,
     MatCardModule,
     MatInputModule,
+    MatMenuModule,
     MatButtonModule,
     MatIconModule,
   ],

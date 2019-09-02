@@ -14,9 +14,18 @@
 
     button {
         width: 300px;
+        margin: 4px 0;
     }
 
     &.footer {
         height: 24px;
+        display: flex;
+        align-items: flex-end;
+        color: red;
     }
+}
+
+.spinner-container {
+    margin: auto;
+    width: 36px;
 }

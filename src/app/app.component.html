@@ -1,13 +1,26 @@
 <div class="app-main-container">
-header
-  <!-- <mat-toolbar>
-    <span>
+  <mat-toolbar>
+    <span class="header-container">
       <strong class="app-main-title">
-        <span class="main">SCS</span>
-        <span class="sub">STAR CHAMPIONSHIP SERIES</span>
+        <span class="main">GGB</span>
+        <span class="sub">GOOD GREEN BANK</span>
       </strong>
+      <div class="icons-container">
+        <button type="submit" [matMenuTriggerFor]="options" title="options" mat-icon-button>
+          <mat-icon>search</mat-icon>
+        </button>
+        <mat-menu #options="matMenu">
+          <button mat-menu-item (click)="onLogout()">
+            LOGOUT
+          </button>
+          <button mat-menu-item>
+
+          </button>
+        </mat-menu>
+          
+      </div>
     </span>
-    <button mat-button [routerLink]="[ '/home' ]">
+    <!-- <button mat-button [routerLink]="[ '/home' ]">
       <strong class="app-sub-title">
         HOME
       </strong>
@@ -21,15 +34,14 @@ header
       <strong class="app-sub-title">
         STANDINGS
       </strong>
-    </button>
-  </mat-toolbar> -->
+    </button> -->
+  </mat-toolbar>
 
   <div class="page-container">
     <router-outlet></router-outlet>
 
     <ng-container *ngIf="isRoutLoading">
       loading...
-      <!-- <mat-spinner class="spinner-position" color="accent"></mat-spinner> -->
     </ng-container>
   </div>
 </div>

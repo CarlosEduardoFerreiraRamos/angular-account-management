@@ -9,9 +9,10 @@ export class MainGuardService implements CanActivate {
 
   constructor(private _router: Router, private _auth: AuthService) {}
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean>  {
-    return this._auth.isTokenValid().pipe(map( isAllowed => {
-      if (isAllowed) {
+  canActivate(): Observable<boolean>  {
+    return this._auth.isTokenValid().pipe(map( authUser => {
+      if (authUser) {
+        this._auth.authUser =  authUser;
         return true;
       } else {
         this._router.navigate(['login']);

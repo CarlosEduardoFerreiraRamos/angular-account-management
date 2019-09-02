@@ -4,10 +4,21 @@
     width: 1024px;
     margin-left: auto;
     margin-right: auto;
-    height: 95%;
+    height: 87%;
 }
 
 .page-container {
     margin: 24px 0 0 0;
     height: 100%;
+}
+
+.header-container {
+    width: 100%;
+    display: flex;
+    position: relative;
+    .icons-container {
+        position: absolute;
+        right: 24px;
+        bottom: 0px;
+    }
 }

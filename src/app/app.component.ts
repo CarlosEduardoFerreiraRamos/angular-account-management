@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouteConfigLoadStart, RouteConfigLoadEnd } from '@angular/router';
+import { AuthService } from './services/auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -10,15 +11,20 @@ export class AppComponent  implements OnInit {
 
   isRoutLoading = false;
 
-  constructor (private router: Router) {}
+  constructor (private _router: Router, private _auth: AuthService) {}
 
    ngOnInit () {
-    this.router.events.subscribe(event => {
+    this._router.events.subscribe(event => {
       if (event instanceof RouteConfigLoadStart) {
         this.isRoutLoading = true;
       } else if (event instanceof RouteConfigLoadEnd) {
         this.isRoutLoading = false;
       }
     });
+  }
+
+  onLogout() {
+    this._auth.logout();
+    location.reload();
   }
 }

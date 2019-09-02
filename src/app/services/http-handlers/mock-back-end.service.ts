@@ -9,7 +9,7 @@ const USERS_LIST = [
   {id: 2, name: 'Tomas', email: 'tomas@gmail.com', password: 'tomas', account: '54321-6', agency: '7', document: 'HH3', balance: 0},
   {id: 3, name: 'Bruna', email: 'bruna@gmail.com', password: 'bruna', account: '26354-0', agency: '13', document: 'D7', balance: 0},
   {id: 4, name: 'Leandro', email: 'leandro@gmail.com', password: 'leandro', account: '87956-5', agency: '2', document: 'D20', balance: 0},
-  {id: 0, name: 'admin', email: 'admin', password: 'admin', account: '0-0', agency: '0', document: '0', balance: 0, admin: true},
+  {id: 0, name: 'admin', email: 'admin@gmail.com', password: 'admin', account: '0-0', agency: '0', document: '0', balance: 0, admin: true},
 ];
 
 @Injectable()

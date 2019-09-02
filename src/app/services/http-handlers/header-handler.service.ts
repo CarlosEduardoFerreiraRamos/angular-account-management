@@ -8,17 +8,18 @@ export class HeaderHandlerService implements HttpInterceptor {
   constructor(private _auth: AuthService) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if (this._auth.authUser) {
-      return next.handle(this.cloneRequest(request));
+    const token = this._auth.authUser ? this._auth.authUser.token : this._auth.token;
+    if (token) {
+      return next.handle(this.cloneRequest(request, token));
     } else {
       return next.handle(request);
     }
   }
 
-  cloneRequest(request: HttpRequest<any>): HttpRequest<any> {
+  cloneRequest(request: HttpRequest<any>, token: string): HttpRequest<any> {
     return request.clone({
       headers: new HttpHeaders({
-        'Authorization': this._auth.authUser.token
+        'Authorization': token
       })
     })
   }

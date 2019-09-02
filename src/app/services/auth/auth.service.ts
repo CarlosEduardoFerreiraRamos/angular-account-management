@@ -21,9 +21,7 @@ export class AuthService {
 
   private _authUser: AuthUser;
 
-  constructor(private _http: HttpClient) {
-    this.authUser = this.authLocal;
-  }
+  constructor(private _http: HttpClient) { }
 
   public login(body: {email: string, password: string}): Observable<AuthUser> {
     const path = `${this.basePath}`;
@@ -31,32 +29,27 @@ export class AuthService {
       .pipe(
         tap( auth => {
           this.authUser = new AuthUser(auth);
-          this.authLocal = this.authUser;
           this.token = this.authUser.token;
         }
       ));
   }
 
-  public isTokenValid(): Observable<boolean> {
-    const path = `${this.basePath}/auth/check`;
-    return this._http.get<boolean>(path);
+  public logout(): void {
+    this.authUser = null;
+    localStorage.removeItem(this.TOKEN_KEY);
   }
 
-  private set authLocal(a: AuthUser) {
-    localStorage.setItem(this.AUTH_USER_KEY, JSON.stringify(a));
-  }
-
-  private get authLocal(): AuthUser {
-    const user = localStorage.getItem(this.AUTH_USER_KEY)
-    return user ? JSON.parse(user) : undefined;
-  }
-
-  private set token(t: string) {
+  public set token(t: string) {
     localStorage.setItem(this.TOKEN_KEY, t);
   }
 
-  private get token(): string {
+  public get token(): string {
     return localStorage.getItem(this.TOKEN_KEY);
+  }
+
+  public isTokenValid(): Observable<AuthUser> {
+    const path = `${this.basePath}/auth/check`;
+    return this._http.get<AuthUser>(path);
   }
 
   private get basePath(): string {
