@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserService } from 'src/app/services/user/user.service';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { FormComponent } from 'src/app/components/form/form.component';
 
 @Component({
   selector: 'app-users-list',
@@ -14,6 +15,8 @@ export class UsersListComponent implements OnInit {
   isUserAdmin: boolean;
 
   users$: Observable<Account[]>;
+
+  @ViewChild(FormComponent, {static: false}) f: FormComponent;
 
   private _userList$ = new BehaviorSubject<Account[]>([]);
 

@@ -15,9 +15,9 @@ export class AppComponent  implements OnInit {
    ngOnInit () {
     this.router.events.subscribe(event => {
       if (event instanceof RouteConfigLoadStart) {
-          this.isRoutLoading = true;
+        this.isRoutLoading = true;
       } else if (event instanceof RouteConfigLoadEnd) {
-          this.isRoutLoading = false;
+        this.isRoutLoading = false;
       }
     });
   }
