@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpResponse } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { delay, map } from 'rxjs/operators';
-import { Account, AuthUser } from 'src/app/models';
+import { Account, AuthUser } from '../../../app/models';
 
 const USERS_LIST = [
   {id: 1, name: 'Erica', email: 'erica@gmail.com', password: 'erica', account: '12345-1', agency: '12', document: 'SH1', balance: 0},

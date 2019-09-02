@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { UserService } from 'src/app/services/user/user.service';
+import { UserService } from '../../../services/user/user.service';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth/auth.service';
-import { FormComponent } from 'src/app/components/form/form.component';
+import { AuthService } from '../../../services/auth/auth.service';
+import { FormComponent } from '../../../components/form/form.component';
 
 @Component({
   selector: 'app-users-list',
