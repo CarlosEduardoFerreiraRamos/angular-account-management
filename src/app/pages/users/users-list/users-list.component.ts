@@ -48,7 +48,7 @@ export class UsersListComponent implements OnInit {
   }
 
   private setUser(): void {
-    // this.isUserAdmin = this._auth.authUser.admin;
+    this.isUserAdmin = this._auth.authUser.admin;
   }
 
   private fetchAccounts(filters?: any): void {

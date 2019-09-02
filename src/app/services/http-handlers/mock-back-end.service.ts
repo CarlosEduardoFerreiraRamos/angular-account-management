@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpResponse } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { delay } from 'rxjs/operators';
-import { Account } from 'src/app/models';
+import { delay, map } from 'rxjs/operators';
+import { Account, AuthUser } from 'src/app/models';
 
 const USERS_LIST = [
-  {id: 1, name: 'Erica', email: 'erica@gmail.com', account: '12345-1', agency: '12', document: 'SH1', balance: 0},
-  {id: 2, name: 'Tomas', email: 'tomas@gmail.com', account: '54321-6', agency: '7', document: 'HH3', balance: 0},
-  {id: 3, name: 'Bruna', email: 'bruna@gmail.com', account: '26354-0', agency: '13', document: 'D7', balance: 0},
-  {id: 4, name: 'Leandro', email: 'leandro@gmail.com', account: '87956-5', agency: '2', document: 'D20', balance: 0},
-  {id: 0, name: 'admin', email: 'admin', account: '0-0', agency: '0', document: '0', balance: 0, admin: true},
+  {id: 1, name: 'Erica', email: 'erica@gmail.com', password: 'erica', account: '12345-1', agency: '12', document: 'SH1', balance: 0},
+  {id: 2, name: 'Tomas', email: 'tomas@gmail.com', password: 'tomas', account: '54321-6', agency: '7', document: 'HH3', balance: 0},
+  {id: 3, name: 'Bruna', email: 'bruna@gmail.com', password: 'bruna', account: '26354-0', agency: '13', document: 'D7', balance: 0},
+  {id: 4, name: 'Leandro', email: 'leandro@gmail.com', password: 'leandro', account: '87956-5', agency: '2', document: 'D20', balance: 0},
+  {id: 0, name: 'admin', email: 'admin', password: 'admin', account: '0-0', agency: '0', document: '0', balance: 0, admin: true},
 ];
 
 @Injectable()
@@ -22,11 +22,27 @@ export class MockBackEndService implements HttpInterceptor {
    }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    // return next.handle(request);
-    return of(this.manageRequest(request)).pipe(delay(500));
+    return of(this.manageRequest(request)).pipe(delay(500), map( res => {
+      if (res.status === 401) {
+        throw res.body;
+      }
+        return res;
+      }
+      ));
   }
 
   private manageRequest(request: HttpRequest<any>): HttpResponse<any> {
+    const {url} = request;
+    if (url.includes('user')) {
+      return this.manageUserRequest(request);
+    }
+    if (url.includes('auth')) {
+      return this.manageAuthRequest(request);
+    }
+    
+  }
+
+  private manageUserRequest(request: HttpRequest<any>): HttpResponse<any> {
     const {url, method, body} = request;
     let response: any = {};
     if (method === 'GET' && url.includes('list')) {
@@ -50,13 +66,34 @@ export class MockBackEndService implements HttpInterceptor {
     return new HttpResponse(response);
   }
 
+  private manageAuthRequest(request: HttpRequest<any>): HttpResponse<any> {
+    const {url, method, body, headers} = request;
+    let response: any = {};
+    if (method === 'GET') {
+      const [id] = url.split('/').reverse();
+      response =  {body: this.getAccount(id), status: 200};
+    } else if (method === 'GET' && url.includes('check') ) {
+      const auth_token = headers.get('Authorization')
+      response =  {body: this.checkToken(auth_token), status: 200};
+    } else if (method === 'POST') {
+      const auth = this.loginUser(body);
+      if (auth instanceof Account) {
+        response =  {body: auth, status: 200};
+      } else {
+        response =  {body: auth, status: 401};
+      }
+    } else {
+      response = {status: 404 };
+    }
+    
+    return new HttpResponse(response);
+  }
+
   private getList(qParamns?: string): Account[] {
     if (!qParamns) {
       return this.accounts.reverse();
     }
-
     const filter = this.extractQueryParamns(qParamns);
-
     return this.accounts
       .reverse()
       .filter( a => {
@@ -103,5 +140,27 @@ export class MockBackEndService implements HttpInterceptor {
     const innitialLength = this.accounts.length;
     this.accounts.filter( ({id: userId}) => userId !== parseInt(id, 0));
     return innitialLength > this.accounts.length;
+  }
+
+  private loginUser({email, password}: {email: string, password: string}) {
+    const account = this.accounts.find( ({email: e}) =>  e === email);
+    if (!account) {
+      return 'Email invalid';
+    }
+    if (account.password ===  password) {
+      account.token =  this.generateToken();
+      return new Account(account);
+    } else {
+      return 'Password invalid';
+    }
+  }
+
+  private generateToken(): string {
+    return new Date().toISOString()
+  }
+
+  private checkToken(token: string): boolean {
+    const account = this.accounts.find( ({token: e}) =>  e === token);
+    return !!account;
   }
 }

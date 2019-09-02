@@ -10,6 +10,7 @@ import { GuardServiceModule } from './services/guard/guard-service.module';
 import { HttpHandlersServiceModule } from './services/http-handlers/http-handlers-service.module';
 import { MatCardModule, MatInputModule, MatButtonModule, MatIconModule } from '@angular/material';
 import { FormModule } from './components/form/form.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { FormModule } from './components/form/form.module';
     GuardServiceModule,
     HttpHandlersServiceModule,
     FormModule,
+    FormsModule,
     MatCardModule,
     MatInputModule,
     MatButtonModule,

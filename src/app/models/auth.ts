@@ -6,7 +6,6 @@ export class AuthUser extends User {
   constructor(data?: any) {
     super(data);
     if (data) {
-      this.token = data.token;
       this.admin = !!data.admin;
     }
   }
