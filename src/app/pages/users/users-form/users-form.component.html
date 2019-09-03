@@ -1,6 +1,6 @@
 <div class="card-container user-form">
   <app-card [title]="title">
-      <app-form (formSubmit)="onSave($event)">
+      <app-form (formSubmit)="onSave()">
         <div class="input-container">
           <mat-form-field class="form-text-search">
             <input ngModel matInput type="text" name="account" id="account" #inputaccount="ngModel" placeholder="Account" required>
@@ -13,7 +13,7 @@
           </mat-form-field>
           <div class="form-text-search">
             <mat-checkbox ngModel name="admin" id="admin" #inputadmin="ngModel">Admin</mat-checkbox>
-          </div>          
+          </div>
           <mat-form-field class="form-text-search">
             <input ngModel matInput type="text" name="name" id="name" #inputname="ngModel" placeholder="Name" required>
           </mat-form-field>
@@ -55,4 +55,3 @@
     <app-loading [diameter]="24"></app-loading>
   </div>
 </ng-template>
-  

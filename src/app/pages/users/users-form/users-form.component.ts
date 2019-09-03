@@ -30,7 +30,7 @@ class FormData {
   styleUrls: ['./users-form.component.scss']
 })
 export class UsersFormComponent implements AfterViewInit {
-  
+
   user: Account;
 
   title: string;
@@ -39,7 +39,7 @@ export class UsersFormComponent implements AfterViewInit {
 
   success: boolean;
 
-  private pageState: string;
+  pageState: string;
 
   @ViewChild(FormComponent, {static: false}) form: FormComponent;
 

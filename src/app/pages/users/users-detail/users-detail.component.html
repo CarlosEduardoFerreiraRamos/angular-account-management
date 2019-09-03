@@ -1,6 +1,6 @@
 <div class="card-container user-form">
   <app-card [title]="user?.account">
-    <app-form (formSubmit)="onSave($event)">
+    <app-form (formSubmit)="onSave()">
       <div class="input-container">
         <div class="form-text-search">
           {{user?.id}} - {{user?.name}}
