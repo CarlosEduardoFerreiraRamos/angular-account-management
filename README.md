@@ -1,27 +1,21 @@
-# AngularAccountManager
+# Angular Account Manager
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.2.
+This an Angular 8 application that simulates an bank Account Management Software, where the user may create, edit and remove user from teh application. There are two permission levels, admin, that haves full CRUD, ad just user, that can only access the user base, but not change it.
 
-## Development server
+## Build and Run
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Npm may be used to run the application. Go to the applications root folder, install all the packeges, `npm install`, them run `npm start` for a dev server, navigate to `http://localhost:4200/`.
 
-## Code scaffolding
+You may find erros tryng to install the packages through NPM, so as alternative Yarn may be used to install the application dependencies. Go to the applications root folder, install all the packages, `yarn install`, after that may resume running with npm.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Data and Storage
 
-## Build
+The application uses localstorage to simulate it's perssitency, it will load the first users from a in memory source but after that switchs to the localStorage.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Back end
 
-## Running unit tests
+This application don't posess any real back end. It utilizes Angulars https-inteceptors to divert the httpClient requests to a mock back-end a service.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Tests
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+There are not tests in this application.
