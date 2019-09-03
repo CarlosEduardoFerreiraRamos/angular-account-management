@@ -7,12 +7,12 @@
       <app-form (formSubmit)="onValidate($event)">
         <div class="form-field-container">
           <mat-form-field class="form-text-search">
-            <input ngModel matInput type="text" name="email" id="email" #inputEmail="ngModel" pattern="^\S+@\S+$" placeholder="Email (ex: admin@gmail.com)" required>
+            <input ngModel matInput type="email" name="email" id="email" #inputEmail="ngModel" pattern="^\S+@\S+$" placeholder="Email (ex: admin@gmail.com)" required>
           </mat-form-field>
         </div>
         <div class="form-field-container">
           <mat-form-field class="form-text-search">
-            <input ngModel matInput type="text" name="password" id="password" #inputPass="ngModel" placeholder="Password (ex: admin)" required>
+            <input ngModel matInput type="password" name="password" id="password" #inputPass="ngModel" placeholder="Password (ex: admin)" required>
           </mat-form-field>
         </div>
         <div class="form-field-container">
