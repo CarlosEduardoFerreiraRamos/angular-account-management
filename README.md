@@ -10,11 +10,11 @@ You may find erros tryng to install the packages through NPM, so as alternative 
 
 ## Data and Storage
 
-The application uses localstorage to simulate it's perssitency, it will load the first users from a in memory source but after that switchs to the localStorage.
+The application uses localstorage to simulate it's persistency, it will load the first users from a in memory source but after that switches to the localStorage.
 
 ## Back end
 
-This application don't posess any real back end. It utilizes Angulars https-inteceptors to divert the httpClient requests to a mock back-end a service.
+This application don't posess any real back end. It utilizes Angulars https-interceptors to divert the httpClient requests to a mock back-end a service.
 
 ## Tests
 
