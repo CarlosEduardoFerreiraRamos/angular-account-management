@@ -1,14 +1,28 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 body {
-    height: 100vh;
-    margin-top: 0;
-    margin-bottom: 0;
+  height: 100vh;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .card-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 75%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 75%;
 }
+
+// div {
+//   height: 300px;
+//   background-image:
+//     linear-gradient(
+//      290deg,
+//       #d7f0a2 65%,
+//       rgb(128, 0, 0, 0) 65%
+//     ), linear-gradient(
+//       320deg,
+//       #fffdc2 85%,
+//       rgb(128, 0, 0, 0) 85%
+//     );
+// }
