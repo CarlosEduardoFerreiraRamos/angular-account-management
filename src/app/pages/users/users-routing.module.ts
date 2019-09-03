@@ -4,7 +4,7 @@ import { UsersListComponent } from './users-list/users-list.component';
 import { UsersDetailComponent } from './users-detail/users-detail.component';
 import { UserResolverService } from '../../services/resolvers/user/user-resolver.service';
 import { UsersFormComponent } from './users-form/users-form.component';
-import { RouteGuardService } from 'src/app/services/guard/route-guard.service';
+import { RouteGuardService } from '../../services/guard/route-guard.service';
 
 
 const routes: Routes = [

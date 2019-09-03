@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormComponent } from '../../../components/form/form.component';
 import { first, finalize } from 'rxjs/operators';
 import { Account } from '../../../models';
-import { UserService } from 'src/app/services/user/user.service';
+import { UserService } from '../../../services/user/user.service';
 
 class FormData {
   account: string;
