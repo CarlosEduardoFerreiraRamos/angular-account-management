@@ -3,7 +3,9 @@
 This an Angular 8 application that simulates an bank Account Management Software, where the user may create, edit and remove user from teh application. There are two permission levels, admin, that haves full CRUD, ad just user, that can only access the user base, but not change it.
 
 Basic admin login:
+
 email: admin@gmail.com
+
 password: admin
 
 ## Build and Run
