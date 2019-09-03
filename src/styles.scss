@@ -1,5 +1,10 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+$base-green: #4EA932;
+$secoundary-green: #8CB081;
+$base-filler: #C9D2C6;
+
+
 body {
   height: 100vh;
   margin-top: 0;
@@ -13,16 +18,17 @@ body {
   height: 75%;
 }
 
-// div {
-//   height: 300px;
-//   background-image:
-//     linear-gradient(
-//      290deg,
-//       #d7f0a2 65%,
-//       rgb(128, 0, 0, 0) 65%
-//     ), linear-gradient(
-//       320deg,
-//       #fffdc2 85%,
-//       rgb(128, 0, 0, 0) 85%
-//     );
-// }
+.page-container {
+  background-image:
+    linear-gradient(330deg, $base-green 45%, rgb(128, 0, 0, 0) 45%),
+    linear-gradient(310deg, $secoundary-green 55%, rgb(128, 0, 0, 0) 55%),
+    linear-gradient(290deg, $base-filler 65%, rgb(128, 0, 0, 0) 65%);
+
+}
+
+.mat-toolbar {
+  background-image:
+    linear-gradient(290deg, $base-green 60%, rgb(128, 0, 0, 0) 50%),
+    linear-gradient(290deg, $secoundary-green 65%, rgb(128, 0, 0, 0) 55%),
+    linear-gradient(290deg, $base-filler 70%, rgb(128, 0, 0, 0) 60%);
+}
