@@ -11,9 +11,9 @@ export class AppComponent  implements OnInit {
 
   isRoutLoading = false;
 
-  constructor (private _router: Router, private _auth: AuthService) {}
+  constructor(private _router: Router, private _auth: AuthService) {}
 
-   ngOnInit () {
+   ngOnInit() {
     this._router.events.subscribe(event => {
       if (event instanceof RouteConfigLoadStart) {
         this.isRoutLoading = true;
@@ -25,6 +25,10 @@ export class AppComponent  implements OnInit {
 
   get isAdmin(): boolean {
     return !!this._auth.authUser && this._auth.authUser.admin;
+  }
+
+  toProfile() {
+    this._router.navigate(['profile']);
   }
 
   toNewUser() {

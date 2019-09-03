@@ -6,8 +6,11 @@
         <span class="sub">GOOD GREEN BANK</span>
       </strong>
       <div class="icons-container">
-        <button type="submit" [matMenuTriggerFor]="options" title="options" mat-icon-button>
+        <button type="button" [matMenuTriggerFor]="options" title="options" mat-icon-button>
           <mat-icon>search</mat-icon>
+        </button>
+        <button type="button" title="profile" (click)="toProfile()" mat-icon-button>
+          <mat-icon>refresh</mat-icon>
         </button>
         <mat-menu #options="matMenu">
           <button mat-menu-item (click)="onLogout()">
@@ -19,7 +22,7 @@
             </button>
           </ng-container>
         </mat-menu>
-          
+
       </div>
     </span>
     <!-- <button mat-button [routerLink]="[ '/home' ]">

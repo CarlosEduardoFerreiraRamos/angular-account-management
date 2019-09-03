@@ -10,7 +10,7 @@ import { RouteGuardService } from '../../services/guard/route-guard.service';
 const routes: Routes = [
   { path: '', component: UsersListComponent },
   {
-    path: 'user/:id',
+    path: 'profile',
     data: {userOnly: true},
     resolve: { account: UserResolverService },
     component: UsersDetailComponent},
