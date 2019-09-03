@@ -7,6 +7,9 @@
       </strong>
       <ng-container *ngIf="hasUser">
         <div class="icons-container">
+          <span>
+            {{userName | titlecase }}
+          </span>
           <button type="button" title="Profile" (click)="toProfile()" mat-icon-button>
             <mat-icon>account_box</mat-icon>
           </button>

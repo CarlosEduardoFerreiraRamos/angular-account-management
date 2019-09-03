@@ -27,6 +27,10 @@ export class AppComponent  implements OnInit {
     return !!this._auth.authUser;
   }
 
+  get userName(): string {
+    return this.hasUser ? this._auth.authUser.name : '';
+  }
+
   toProfile() {
     this._router.navigate(['profile']);
   }

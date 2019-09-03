@@ -1,22 +1,22 @@
 .card-container {
   &.user-form {
-      height: 90%;
+    height: 90%;
   }
 
   .form-text-search {
-      width: 400px;
-      margin: 0 24px;
+    width: 400px;
+    margin: 0 24px;
   }
 
   .form-field-container {
-      margin: 18px 0 40px;
-      display: flex;
+    margin: 18px 0 40px;
+    display: flex;
 
-      button {
-          margin: 8px 4px;
-          height: 40px;
-          width: 115px;
-      }
+    button {
+      margin: 8px 4px;
+      height: 40px;
+      width: 115px;
+    }
   }
 }
 

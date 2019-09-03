@@ -4,11 +4,11 @@
     <mat-form-field class="form-text-search">
       <input ngModel matInput type="text" name="filter" id="filter" placeholder="Search users">
     </mat-form-field>
-    <button type="submit" title="Search" mat-mini-fab color="primary">
+    <button type="submit" title="Search" mat-mini-fab>
       <mat-icon>search</mat-icon>
     </button>
     <ng-container *ngIf="isAdmin">
-      <button type="button" title="Create User" (click)="toNewUser()" mat-mini-fab color="primary">
+      <button type="button" title="Create User" (click)="toNewUser()" mat-mini-fab >
         <mat-icon>add</mat-icon>
       </button>
     </ng-container>
