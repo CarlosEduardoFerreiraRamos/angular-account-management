@@ -12,6 +12,7 @@ import { MatCardModule, MatInputModule, MatButtonModule, MatIconModule, MatToolb
 import { FormModule } from './components/form/form.module';
 import { FormsModule } from '@angular/forms';
 import { LoadingModule } from './components/loading/loading.module';
+import { CardModule } from './components/card/card.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { LoadingModule } from './components/loading/loading.module';
     LoadingModule,
     MatToolbarModule,
     FormModule,
+    CardModule,
     FormsModule,
     MatCardModule,
     MatInputModule,

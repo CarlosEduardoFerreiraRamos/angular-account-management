@@ -23,6 +23,14 @@ export class AppComponent  implements OnInit {
     });
   }
 
+  get isAdmin(): boolean {
+    return !!this._auth.authUser && this._auth.authUser.admin;
+  }
+
+  toNewUser() {
+    this._router.navigate(['new']);
+  }
+
   onLogout() {
     this._auth.logout();
     location.reload();

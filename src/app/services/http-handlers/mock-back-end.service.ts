@@ -62,8 +62,7 @@ export class MockBackEndService implements HttpInterceptor {
     } else if (method === 'POST') {
       response =  {body: this.createAccount(body), status: 200};
     } else if (method === 'PATCH') {
-      const [id] = url.split('/').reverse();
-      response =  {body: this.patchAccount(body, id), status: 200};
+      response =  {body: this.patchAccount(body, body.id), status: 200};
     } else if (method === 'DELETE') {
       const [id] = url.split('/').reverse();
       response =  {body: this.deleteAccount(id), status: 200};
@@ -100,10 +99,10 @@ export class MockBackEndService implements HttpInterceptor {
 
   private getList(qParamns?: string): Account[] {
     if (!qParamns) {
-      return this.accounts.reverse();
+      return [...this.accounts].reverse();
     }
     const filter = this.extractQueryParamns(qParamns);
-    return this.accounts
+    return [...this.accounts]
       .reverse()
       .filter( a => {
         let isSimilar = false;

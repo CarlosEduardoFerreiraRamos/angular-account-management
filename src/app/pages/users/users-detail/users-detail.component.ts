@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-users-detail',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersDetailComponent implements OnInit {
 
-  constructor() { }
+  user: Account;
+
+  title: string;
+
+  constructor(private _activateRout: ActivatedRoute) { }
 
   ngOnInit() {
+    this._activateRout.data.subscribe( ({account}) => {
+      this.user = account;
+      this.title = account ? account.name : 'New user';
+    })
   }
 
 }

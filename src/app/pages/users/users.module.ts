@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatInputModule, MatButtonModule, MatIconModule } from '@angular/material';
+import { MatInputModule, MatButtonModule, MatIconModule, MatCheckboxModule } from '@angular/material';
 import { UsersRoutingModule } from './users-routing.module';
 import { UsersListComponent } from './users-list/users-list.component';
 import { UsersDetailComponent } from './users-detail/users-detail.component';
@@ -8,23 +8,32 @@ import { UserServiceModule } from '../../../app/services/user/user-service.modul
 import { ListModule } from '../../../app/components/list/list.module';
 import { FormModule } from '../../../app/components/form/form.module';
 import { FormsModule } from '@angular/forms';
+import { UsersFormComponent } from './users-form/users-form.component';
+import { UserResolverService } from '../../services/resolvers/user/user-resolver.service';
+import { CardModule } from '../../components/card/card.module';
+import { LoadingModule } from '../../components/loading/loading.module';
 
 
 @NgModule({
   declarations: [
     UsersListComponent,
-    UsersDetailComponent
+    UsersDetailComponent,
+    UsersFormComponent
   ],
   imports: [
     CommonModule,
     UsersRoutingModule,
     UserServiceModule,
     MatInputModule,
+    MatCheckboxModule,
     MatButtonModule,
     MatIconModule,
+    LoadingModule,
+    CardModule,
     ListModule,
     FormModule,
     FormsModule
-  ]
+  ],
+  providers: [UserResolverService]
 })
 export class UsersModule { }

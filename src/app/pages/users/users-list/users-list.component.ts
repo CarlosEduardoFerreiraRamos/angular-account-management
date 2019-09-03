@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth/auth.service';
 import { FormComponent } from '../../../components/form/form.component';
+import { Account } from '../../../models';
 
 @Component({
   selector: 'app-users-list',
