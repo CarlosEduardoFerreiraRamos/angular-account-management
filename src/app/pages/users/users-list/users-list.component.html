@@ -7,9 +7,11 @@
     <button type="submit" title="Search" mat-mini-fab color="primary">
       <mat-icon>search</mat-icon>
     </button>
-    <button type="button" title="create" (click)="onCreateClick()" mat-mini-fab color="primary">
-      <mat-icon>search</mat-icon>
-    </button>
+    <ng-container *ngIf="isAdmin">
+      <button type="button" title="Create User" (click)="toNewUser()" mat-mini-fab color="primary">
+        <mat-icon>add</mat-icon>
+      </button>
+    </ng-container>
   </div>
 </app-form>
 

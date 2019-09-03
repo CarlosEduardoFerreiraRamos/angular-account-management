@@ -23,16 +23,12 @@ export class AppComponent  implements OnInit {
     });
   }
 
-  get isAdmin(): boolean {
-    return !!this._auth.authUser && this._auth.authUser.admin;
+  get hasUser(): boolean {
+    return !!this._auth.authUser;
   }
 
   toProfile() {
     this._router.navigate(['profile']);
-  }
-
-  toNewUser() {
-    this._router.navigate(['new']);
   }
 
   onLogout() {

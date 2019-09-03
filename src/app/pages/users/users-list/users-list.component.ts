@@ -33,15 +33,19 @@ export class UsersListComponent implements OnInit {
   }
 
   onSearch($event) {
-    this.fetchAccounts($event.filter)
+    this.fetchAccounts($event.filter);
   }
 
   onRowClick($event) {
-    this._router.navigate(['detail', $event.id])
+    this._router.navigate(['detail', $event.id]);
   }
 
-  onCreateClick() {
-    this._router.navigate(['create'])
+  toNewUser() {
+    this._router.navigate(['new']);
+  }
+
+  get isAdmin(): boolean {
+    return !!this._auth.authUser && this._auth.authUser.admin;
   }
 
   private initLists(): void {
