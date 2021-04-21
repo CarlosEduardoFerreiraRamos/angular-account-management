@@ -1,27 +1,27 @@
-# AngularGoodGreenBank
+# Angular Account Manager
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.9.
+This an Angular 11 application that simulates an bank Account Management Software, where the user may create, edit and remove user from teh application. There are two permission levels, admin, that haves full CRUD, ad just user, that can only access the user base, but not change it.
 
-## Development server
+Basic admin login:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+email: admin@gmail.com
 
-## Code scaffolding
+password: admin
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Build and Run
 
-## Build
+Npm may be used to run the application. Go to the applications root folder, install all the packeges, `npm install`, them run `npm start` for a dev server, navigate to `http://localhost:4200/`.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+You may find erros tryng to install the packages through NPM, so as alternative Yarn may be used to install the application dependencies. Go to the applications root folder, install all the packages, `yarn install`, after that may resume running with npm.
 
-## Running unit tests
+## Data and Storage
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+The application uses localstorage to simulate it's persistency, it will load the first users from a in memory source but after that switches to the localStorage.
 
-## Running end-to-end tests
+## Back end
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+This application don't posess any real back end. It utilizes Angulars https-interceptors to divert the httpClient requests to a mock back-end a service.
 
-## Further help
+## Tests
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+There are three components with tests and a service.
