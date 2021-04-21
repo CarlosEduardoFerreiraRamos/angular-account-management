@@ -1,0 +1,35 @@
+@import "../styles.scss";
+
+.app-main-container {
+  width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 87%;
+}
+
+.page-container {
+  margin: 24px 0 0 0;
+  height: 100%;
+}
+
+.header-container {
+  width: 100%;
+  display: flex;
+  position: relative;
+
+  span {
+    margin: 0 18px 0 0px;
+    &.main {
+      font-family: fantasy;
+      font-size: 36px;
+      color: $base-green;
+    }
+  }
+
+  .icons-container {
+    color: white;
+    position: absolute;
+    right: 24px;
+    bottom: 0px;
+  }
+}

@@ -1,0 +1,31 @@
+<div class="app-main-container">
+  <mat-toolbar>
+    <span class="header-container">
+      <strong class="app-main-title">
+        <span class="main">GGB</span>
+        <span class="sub">GOOD GREEN BANK</span>
+      </strong>
+      <ng-container *ngIf="hasUser">
+        <div class="icons-container">
+          <span>
+            {{userName | titlecase }}
+          </span>
+          <button type="button" title="Profile" (click)="toProfile()" mat-icon-button>
+            <mat-icon>account_box</mat-icon>
+          </button>
+          <button type="button" title="Logout" (click)="onLogout()" mat-icon-button>
+            <mat-icon>exit_to_app</mat-icon>
+          </button>
+        </div>
+      </ng-container>
+    </span>
+  </mat-toolbar>
+
+  <div class="page-container">
+    <router-outlet></router-outlet>
+
+    <ng-container *ngIf="isRoutLoading">
+      loading...
+    </ng-container>
+  </div>
+</div>

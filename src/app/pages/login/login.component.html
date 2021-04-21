@@ -1,0 +1,33 @@
+<div class="card-container">
+  <app-card title="Login">
+    <app-form (formSubmit)="onValidate($event)">
+      <div class="form-field-container">
+        <mat-form-field class="form-text-search">
+          <input ngModel matInput type="email" name="email" id="email" #inputEmail="ngModel" pattern="^\S+@\S+$" placeholder="Email (ex: admin@gmail.com)" required>
+        </mat-form-field>
+      </div>
+      <div class="form-field-container">
+        <mat-form-field class="form-text-search">
+          <input ngModel matInput type="password" name="password" id="password" #inputPass="ngModel" placeholder="Password (ex: admin)" required>
+        </mat-form-field>
+      </div>
+      <div class="form-field-container">
+        <button type="submit" color="primary" title="Login" [disabled]="inputEmail.invalid || inputPass.invalid" mat-raised-button>
+          <ng-container *ngIf="!isLoading else loading">
+            LOGIN
+          </ng-container>
+        </button>
+      </div>
+      <div class="form-field-container footer">
+        {{errorMensage}}
+      </div>
+    </app-form>
+  </app-card>
+</div>
+
+<ng-template #loading>
+  <div class="spinner-container">
+    <app-loading [diameter]="34"></app-loading>
+  </div>
+</ng-template>
+

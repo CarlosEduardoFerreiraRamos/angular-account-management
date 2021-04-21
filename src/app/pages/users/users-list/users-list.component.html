@@ -1,0 +1,28 @@
+
+<app-form (valueChanges)="onSearch($event)" (formSubmit)="onSearch($event)">
+  <div class="form-field-container">
+    <mat-form-field class="form-text-search">
+      <input ngModel matInput type="text" name="filter" id="filter" placeholder="Search users">
+    </mat-form-field>
+    <button type="submit" title="Search" mat-mini-fab>
+      <mat-icon>search</mat-icon>
+    </button>
+    <ng-container *ngIf="isAdmin">
+      <button type="button" title="Create User" (click)="toNewUser()" mat-mini-fab >
+        <mat-icon>add</mat-icon>
+      </button>
+    </ng-container>
+  </div>
+</app-form>
+
+<ng-container *ngIf="isUserAdmin else nonAdminList">
+  <app-list [displayedColumns]="['id','name','email', 'account', 'agency','balance']" [data]="users$ | async"  (rowClick)="onRowClick($event)">
+  </app-list>
+</ng-container>
+
+<ng-template #nonAdminList>
+  <app-list [displayedColumns]="['id','name','email', 'account', 'agency','balance']" [data]="users$ | async"></app-list>
+</ng-template>
+
+
+
