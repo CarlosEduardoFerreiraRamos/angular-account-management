@@ -8,21 +8,22 @@ import { RouteGuardService } from '../../services/guard/route-guard.service';
 
 
 const routes: Routes = [
-  { path: '', component: UsersListComponent },
+  { path: '', component: UsersListComponent, data: {animation: 'ListPage'} },
   {
     path: 'profile',
-    data: {userOnly: true},
+    data: {userOnly: true, animation: 'ProfilePage'},
     resolve: { account: UserResolverService },
     component: UsersDetailComponent},
   {
     path: 'detail/:id',
+    data: {animation: 'FormPage'},
     canActivate: [RouteGuardService],
     resolve: { account: UserResolverService },
     component: UsersFormComponent
   },
   {
     path: 'new',
-    data: {newUser: true},
+    data: {newUser: true, animation: 'FormPage'},
     canActivate: [RouteGuardService],
     resolve: { account: UserResolverService },
     component: UsersFormComponent

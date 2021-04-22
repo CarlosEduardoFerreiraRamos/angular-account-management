@@ -21,8 +21,11 @@
     </span>
   </mat-toolbar>
 
-  <div class="page-container">
-    <router-outlet></router-outlet>
+  <div class="page-container" >
+    <div [@routerFade]="prepareRoute(outlet)">
+
+      <router-outlet #outlet="outlet" ></router-outlet>
+    </div>
 
     <ng-container *ngIf="isRoutLoading">
       loading...

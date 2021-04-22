@@ -1,10 +1,12 @@
 import { Component, Input, Output, TemplateRef, EventEmitter, ContentChild } from '@angular/core';
+import { fade } from 'src/app/animations/fade';
 
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+  styleUrls: ['./list.component.scss'],
+  animations: [fade]
 })
 export class ListComponent {
 

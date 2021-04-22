@@ -1,5 +1,5 @@
 <ng-container *ngIf="columns">
-  <table mat-table #tableRecents [dataSource]="data" class="mat-elevation-z8">
+  <table @fade mat-table #tableRecents [dataSource]="data" class="mat-elevation-z8">
     <ng-container *ngFor="let name of columns">
       <ng-container [matColumnDef]="name">
         <th mat-header-cell *matHeaderCellDef> {{name | uppercase}} </th>
@@ -14,7 +14,8 @@
       </ng-container>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="columns"></tr>
-    <tr mat-row [ngClass]="{'interactable': isInteractable}" *matRowDef="let row; columns: columns;"
+    <tr mat-row [ngClass]="{'interactable': isInteractable}" @fade *matRowDef="let row; columns: columns;"
       (click)="onRowClick(row)"></tr>
   </table>
 </ng-container>
+
