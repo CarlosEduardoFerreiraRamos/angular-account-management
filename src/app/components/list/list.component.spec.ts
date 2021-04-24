@@ -3,6 +3,7 @@ import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatTableModule } from '@angular/material/table';
 
 import { ListComponent } from './list.component';
+import { ListModule } from './list.module';
 describe('ListComponent', () => {
   let component: ListComponent;
   let fixture: ComponentFixture<ListComponent>;
@@ -11,9 +12,8 @@ describe('ListComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         CommonModule,
-        MatTableModule
-      ],
-      declarations: [ ListComponent ]
+        ListModule
+      ]
     })
     .compileComponents();
   }));
