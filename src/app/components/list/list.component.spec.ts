@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatTableModule } from '@angular/material/table';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ListComponent } from './list.component';
 import { ListModule } from './list.module';
@@ -12,6 +12,7 @@ describe('ListComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         CommonModule,
+        BrowserAnimationsModule,
         ListModule
       ]
     })
