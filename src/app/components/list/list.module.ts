@@ -10,7 +10,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   declarations: [ListComponent],
   imports: [
     CommonModule,
-    BrowserAnimationsModule,
     MatTableModule
   ],
   exports: [ListComponent]
