@@ -1,8 +1,6 @@
 name: Build AWS
 
 on:
-  push:
-    branches: [ production ]
   pull_request:
     branches: [ production ]
 
@@ -38,6 +36,4 @@ jobs:
             dist-id: ${{ secrets.CLOUDFRONT_GGB_DISTRIBUTION }}
             invalidation: /
             delete-removed: true
-            no-cache: true
-            private: true
 
