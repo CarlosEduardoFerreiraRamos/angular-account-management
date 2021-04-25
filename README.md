@@ -1,6 +1,6 @@
 # Angular Account Manager
 
-This an Angular 11 application that simulates an bank Account Management Software, where the user may create, edit and remove user from teh application. There are two permission levels, admin, that haves full CRUD, ad just user, that can only access the user base, but not change it.
+This an Angular 11 application that simulates a bank Account Management Software, where the user may create, edit and remove user from teh application. There are two permission levels, admin, that haves full CRUD, ad just user, that can only access the user base, but not change it.
 
 Basic admin login:
 
@@ -24,4 +24,9 @@ This application don't posess any real back end. It utilizes Angulars https-inte
 
 ## Tests
 
-There are three components with tests and a service.
+There are three components with tests and a service. The tests may be run using the command `npm test`.
+
+## Continuous Integration
+
+The project possess a test pipeline and a production pipeline. The former is fired when alterations or new features are pushed to the master branch, and the latter when a pull resquest is made to the production branch.
+
