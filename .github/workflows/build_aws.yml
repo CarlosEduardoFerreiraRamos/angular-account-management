@@ -34,5 +34,8 @@ jobs:
             bucket: ${{ secrets.AWS_AAM_BUCKET_NAME }}
             bucket-region: ${{ secrets.AWS_REGION }}
             dist-id: ${{ secrets.CLOUDFRONT_GGB_DISTRIBUTION }}
+            invalidation: /
             delete-removed: true
+            no-cache: true
+            private: true
 
