@@ -1,20 +1,4 @@
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
-
-@import '~@angular/material/theming';
-
-@include mat-core();
-
-$base-green: #4EA932;
-$secoundary-green: #8CB081;
-$base-filler: #C9D2C6;
-
-$app-primary: mat-palette($mat-green);
-$app-accent: mat-palette($mat-gray);
-$app-warn: mat-palette($mat-red);
-
-$app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
-
-@include angular-material-theme($app-theme);
+@import "styles/variables";
 
 body {
   height: 100vh;
