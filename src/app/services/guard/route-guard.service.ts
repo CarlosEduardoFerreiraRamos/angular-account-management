@@ -4,10 +4,9 @@ import { AuthService } from '../auth/auth.service';
 
 @Injectable()
 export class RouteGuardService implements CanActivate {
-
   constructor(private _router: Router, private _auth: AuthService) {}
 
-  canActivate(): boolean  {
+  canActivate(): boolean {
     if (this._auth.authUser.admin) {
       return true;
     } else {
@@ -16,4 +15,3 @@ export class RouteGuardService implements CanActivate {
     }
   }
 }
-

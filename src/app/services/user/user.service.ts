@@ -6,13 +6,12 @@ import { Account } from '../../models';
 
 @Injectable()
 export class UserService {
-
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient) {}
 
   public getAll(filter?: string): Observable<Account[]> {
     let path = `${this.basePath}/list`;
     if (filter) {
-      path += `?filter=${filter}`
+      path += `?filter=${filter}`;
     }
     return this._http.get<Account[]>(path);
   }

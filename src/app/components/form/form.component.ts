@@ -1,15 +1,22 @@
-import { Component, ContentChildren, QueryList, AfterViewInit, ViewChild, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  ContentChildren,
+  QueryList,
+  AfterViewInit,
+  ViewChild,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 import { NgModel, NgForm } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.scss']
+  styleUrls: ['./form.component.scss'],
 })
 export class FormComponent implements AfterViewInit {
-
-  @ContentChildren(NgModel, {descendants: true}) models: QueryList<NgModel>;
+  @ContentChildren(NgModel, { descendants: true }) models: QueryList<NgModel>;
 
   @ViewChild(NgForm, { static: false }) form: NgForm;
 
@@ -23,9 +30,7 @@ export class FormComponent implements AfterViewInit {
   }
 
   private subscribeToValueChanges() {
-    this.form.valueChanges
-    .pipe(debounceTime(300))
-    .subscribe( values => {
+    this.form.valueChanges.pipe(debounceTime(300)).subscribe((values) => {
       this.valueChanges.emit(values);
     });
   }
@@ -35,5 +40,4 @@ export class FormComponent implements AfterViewInit {
       this.form.addControl(model);
     });
   }
-
 }

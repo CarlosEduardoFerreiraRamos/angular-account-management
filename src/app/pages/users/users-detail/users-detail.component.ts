@@ -8,10 +8,9 @@ import { Account } from '../../../models';
 @Component({
   selector: 'app-users-detail',
   templateUrl: './users-detail.component.html',
-  styleUrls: ['./users-detail.component.scss']
+  styleUrls: ['./users-detail.component.scss'],
 })
 export class UsersDetailComponent implements AfterViewInit {
-
   user: Account;
 
   title: string;
@@ -20,13 +19,13 @@ export class UsersDetailComponent implements AfterViewInit {
 
   success: boolean;
 
-  @ViewChild(FormComponent, {static: false}) form: FormComponent;
+  @ViewChild(FormComponent, { static: false }) form: FormComponent;
 
   constructor(
     private _activateRout: ActivatedRoute,
     private _service: UserService,
     private _router: Router
-    ) { }
+  ) {}
 
   ngAfterViewInit() {
     this.fetchData();
@@ -35,10 +34,11 @@ export class UsersDetailComponent implements AfterViewInit {
   onSave() {
     this.isLoading = true;
     const password = this.form.form.controls['newassword'].value;
-    const data: any = {...this.user, ...{password} };
-    this._service.patch(data)
-      .pipe(finalize( () => this.isLoading = false))
-      .subscribe( () => this.success = true);
+    const data: any = { ...this.user, ...{ password } };
+    this._service
+      .patch(data)
+      .pipe(finalize(() => (this.isLoading = false)))
+      .subscribe(() => (this.success = true));
   }
 
   onCancel() {
@@ -46,9 +46,8 @@ export class UsersDetailComponent implements AfterViewInit {
   }
 
   private async fetchData(): Promise<void> {
-    const {account} = await this._activateRout.data.pipe(first()).toPromise();
+    const { account } = await this._activateRout.data.pipe(first()).toPromise();
     this.user = account;
     this.title = account.name;
   }
 }
-

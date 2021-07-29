@@ -4,23 +4,20 @@ import { MockBackEndService } from './mock-back-end.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HeaderHandlerService } from './header-handler.service';
 
-
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule],
   providers: [
     {
-      provide:  HTTP_INTERCEPTORS,
+      provide: HTTP_INTERCEPTORS,
       useClass: HeaderHandlerService,
-      multi: true
+      multi: true,
     },
     {
-      provide:  HTTP_INTERCEPTORS,
+      provide: HTTP_INTERCEPTORS,
       useClass: MockBackEndService,
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
-export class HttpHandlersServiceModule { }
+export class HttpHandlersServiceModule {}

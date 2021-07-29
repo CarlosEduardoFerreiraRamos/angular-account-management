@@ -1,52 +1,128 @@
 <div class="card-container user-form">
   <app-card [title]="title">
-      <app-form (formSubmit)="onSave()">
-        <div class="input-container">
-          <mat-form-field class="form-text-search">
-            <input ngModel matInput type="text" name="account" id="account" #inputaccount="ngModel" placeholder="Account" required>
-          </mat-form-field>
-          <mat-form-field class="form-text-search">
-            <input ngModel matInput type="text" name="agency" id="agency" #inputagency="ngModel" placeholder="Agency" required>
-          </mat-form-field>
-          <mat-form-field class="form-text-search">
-            <input ngModel matInput type="text" name="documentId" id="documentId" #inputdocumentId="ngModel" placeholder="Document ID" required>
-          </mat-form-field>
-          <div class="form-text-search">
-            <mat-checkbox ngModel name="admin" id="admin" #inputadmin="ngModel">Admin</mat-checkbox>
+    <app-form (formSubmit)="onSave()">
+      <div class="input-container">
+        <mat-form-field class="form-text-search">
+          <input
+            ngModel
+            matInput
+            type="text"
+            name="account"
+            id="account"
+            #inputaccount="ngModel"
+            placeholder="Account"
+            required
+          />
+        </mat-form-field>
+        <mat-form-field class="form-text-search">
+          <input
+            ngModel
+            matInput
+            type="text"
+            name="agency"
+            id="agency"
+            #inputagency="ngModel"
+            placeholder="Agency"
+            required
+          />
+        </mat-form-field>
+        <mat-form-field class="form-text-search">
+          <input
+            ngModel
+            matInput
+            type="text"
+            name="documentId"
+            id="documentId"
+            #inputdocumentId="ngModel"
+            placeholder="Document ID"
+            required
+          />
+        </mat-form-field>
+        <div class="form-text-search">
+          <mat-checkbox ngModel name="admin" id="admin" #inputadmin="ngModel"
+            >Admin</mat-checkbox
+          >
+        </div>
+        <mat-form-field class="form-text-search">
+          <input
+            ngModel
+            matInput
+            type="text"
+            name="name"
+            id="name"
+            #inputname="ngModel"
+            placeholder="Name"
+            required
+          />
+        </mat-form-field>
+        <mat-form-field class="form-text-search">
+          <input
+            ngModel
+            matInput
+            type="email"
+            name="email"
+            id="email"
+            #inputemail="ngModel"
+            pattern="^\S+@\S+$"
+            placeholder="Email"
+            required
+          />
+        </mat-form-field>
+        <mat-form-field class="form-text-search">
+          <input
+            ngModel
+            matInput
+            type="text"
+            name="password"
+            id="password"
+            #inputpassword="ngModel"
+            placeholder="Password"
+            required
+          />
+        </mat-form-field>
+        <div class="form-field-container">
+          <div class="button-holder">
+            <button
+              type="button"
+              [disabled]="isLoading"
+              title="Login"
+              (click)="onCancel()"
+              mat-raised-button
+            >
+              BACK
+            </button>
           </div>
-          <mat-form-field class="form-text-search">
-            <input ngModel matInput type="text" name="name" id="name" #inputname="ngModel" placeholder="Name" required>
-          </mat-form-field>
-          <mat-form-field class="form-text-search">
-            <input ngModel matInput type="email" name="email" id="email" #inputemail="ngModel" pattern="^\S+@\S+$" placeholder="Email" required>
-          </mat-form-field>
-          <mat-form-field class="form-text-search">
-            <input ngModel matInput type="text" name="password" id="password" #inputpassword="ngModel" placeholder="Password" required>
-          </mat-form-field>
-          <div class="form-field-container">
-            <div class="button-holder">
-              <button type="button" [disabled]="isLoading"  title="Login" (click)="onCancel()" mat-raised-button>
-                BACK
-              </button>
-            </div>
-            <div class="button-holder">
-              <button type="submit" color="primary" title="Login" [disabled]="isFormValid" mat-raised-button>
-                <ng-container *ngIf="!isLoading else loading">
-                  SEND
-                </ng-container>
-              </button>
-            </div>
-            <div class="button-holder" *ngIf="pageState === 'EDIT_USER'">
-              <button type="button" [disabled]="isLoading" color="warn" title="Login" (click)="onDelete()" mat-raised-button>
-                DELETE
-              </button>
-            </div>
-            <div class="button-holder feedback">
-              {{ this.success ? 'Saved!' : ''}}
-            </div>
+          <div class="button-holder">
+            <button
+              type="submit"
+              color="primary"
+              title="Login"
+              [disabled]="isFormValid"
+              mat-raised-button
+            >
+              <ng-container *ngIf="!isLoading; else loading">
+                SEND
+              </ng-container>
+            </button>
+          </div>
+          <div class="button-holder" *ngIf="pageState === 'EDIT_USER'">
+            <button
+              type="button"
+              [disabled]="isLoading"
+              color="warn"
+              title="Login"
+              (click)="onDelete()"
+              mat-raised-button
+            >
+              DELETE
+            </button>
+          </div>
+          <div class="button-holder feedback">
+            {{ this.success ? 'Saved!' : '' }}
           </div>
         </div>
-      </app-form>
+      </div>
+    </app-form>
   </app-card>
 </div>
 

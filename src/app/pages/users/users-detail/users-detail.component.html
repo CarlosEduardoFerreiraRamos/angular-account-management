@@ -2,36 +2,68 @@
   <app-card [title]="user?.account">
     <app-form (formSubmit)="onSave()">
       <div class="input-container">
+        <div class="form-text-search">{{ user?.id }} - {{ user?.name }}</div>
         <div class="form-text-search">
-          {{user?.id}} - {{user?.name}}
+          {{ user?.email }}
         </div>
         <div class="form-text-search">
-          {{user?.email}}
-        </div>
-        <div class="form-text-search">
-          {{user?.documentId}}
+          {{ user?.documentId }}
         </div>
         <mat-form-field class="form-text-search">
-          <input ngModel matInput type="text" name="password" id="password" #inputpassword="ngModel" placeholder="New password" required>
+          <input
+            ngModel
+            matInput
+            type="text"
+            name="password"
+            id="password"
+            #inputpassword="ngModel"
+            placeholder="New password"
+            required
+          />
         </mat-form-field>
         <mat-form-field class="form-text-search">
-          <input ngModel matInput type="text" name="newassword" id="newassword" #inputnewassword="ngModel" placeholder="Confirm new password" required>
+          <input
+            ngModel
+            matInput
+            type="text"
+            name="newassword"
+            id="newassword"
+            #inputnewassword="ngModel"
+            placeholder="Confirm new password"
+            required
+          />
         </mat-form-field>
         <div class="form-field-container">
           <div class="button-holder">
-            <button type="button" [disabled]="isLoading" title="Login" (click)="onCancel()" mat-raised-button>
+            <button
+              type="button"
+              [disabled]="isLoading"
+              title="Login"
+              (click)="onCancel()"
+              mat-raised-button
+            >
               BACK
             </button>
           </div>
           <div class="button-holder">
-            <button type="submit" color="primary" title="Login" [disabled]="inputpassword.value && inputnewassword.value && (inputpassword.value !== inputnewassword.value)" mat-raised-button>
-              <ng-container *ngIf="!isLoading else loading">
+            <button
+              type="submit"
+              color="primary"
+              title="Login"
+              [disabled]="
+                inputpassword.value &&
+                inputnewassword.value &&
+                inputpassword.value !== inputnewassword.value
+              "
+              mat-raised-button
+            >
+              <ng-container *ngIf="!isLoading; else loading">
                 SEND
               </ng-container>
             </button>
           </div>
           <div class="button-holder feedback">
-            {{ this.success ? 'Saved!' : ''}}
+            {{ this.success ? 'Saved!' : '' }}
           </div>
         </div>
       </div>

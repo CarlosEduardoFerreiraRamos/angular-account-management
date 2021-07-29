@@ -6,24 +6,23 @@ import { finalize } from 'rxjs/operators';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-
   isLoading: boolean;
 
   errorMensage: string;
 
-  constructor(private _auth: AuthService, private _router: Router) { }
+  constructor(private _auth: AuthService, private _router: Router) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onValidate($event) {
     this.errorMensage = '';
     this.isLoading = true;
-    this._auth.login($event)
-      .pipe(finalize( () => this.isLoading = false))
+    this._auth
+      .login($event)
+      .pipe(finalize(() => (this.isLoading = false)))
       .subscribe(
         () => {
           console.log('verify');
@@ -31,9 +30,8 @@ export class LoginComponent implements OnInit {
         },
         (error) => {
           this.errorMensage = error;
-          console.error('invalid login:', error)
+          console.error('invalid login:', error);
         }
-      )
+      );
   }
-
 }

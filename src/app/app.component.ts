@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { RouteConfigLoadEnd, RouteConfigLoadStart, Router, RouterOutlet } from '@angular/router';
+import {
+  RouteConfigLoadEnd,
+  RouteConfigLoadStart,
+  Router,
+  RouterOutlet,
+} from '@angular/router';
 import { fade } from './animations/fade';
 import { routerFade } from './animations/router-fade';
 import { AuthService } from './services/auth/auth.service';
@@ -8,16 +13,15 @@ import { AuthService } from './services/auth/auth.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  animations: [routerFade]
+  animations: [routerFade],
 })
 export class AppComponent {
-
   public isRoutLoading = false;
 
   constructor(private _router: Router, private _auth: AuthService) {}
 
-   public ngOnInit(): void {
-    this._router.events.subscribe(event => {
+  public ngOnInit(): void {
+    this._router.events.subscribe((event) => {
       if (event instanceof RouteConfigLoadStart) {
         this.isRoutLoading = true;
       } else if (event instanceof RouteConfigLoadEnd) {
@@ -27,7 +31,9 @@ export class AppComponent {
   }
 
   public prepareRoute(outlet: RouterOutlet): string | void {
-    return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
+    return (
+      outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation
+    );
   }
 
   public get hasUser(): boolean {

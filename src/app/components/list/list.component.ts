@@ -1,19 +1,26 @@
-import { Component, Input, Output, TemplateRef, EventEmitter, ContentChild } from '@angular/core';
+import {
+  Component,
+  Input,
+  Output,
+  TemplateRef,
+  EventEmitter,
+  ContentChild,
+} from '@angular/core';
 import { fade } from 'src/app/animations/fade';
-
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
-  animations: [fade]
+  animations: [fade],
 })
 export class ListComponent {
-
   @Input() displayedColumns: string[];
 
   @Input()
-  get data(): any[] { return this._data; }
+  get data(): any[] {
+    return this._data;
+  }
   set data(v: any[]) {
     if (v) {
       this._data = v;
@@ -22,7 +29,9 @@ export class ListComponent {
     }
   }
 
-  get columns(): any { return this._columns; }
+  get columns(): any {
+    return this._columns;
+  }
   set columns(v: any) {
     if (v) {
       if (this.displayedColumns) {
@@ -35,7 +44,7 @@ export class ListComponent {
 
   @Output() rowClick = new EventEmitter();
 
-  @ContentChild(TemplateRef, {static: false}) content: TemplateRef<any>;
+  @ContentChild(TemplateRef, { static: false }) content: TemplateRef<any>;
 
   private _columns;
 
@@ -48,5 +57,4 @@ export class ListComponent {
   get isInteractable(): boolean {
     return !!this.rowClick.observers.length;
   }
-
 }

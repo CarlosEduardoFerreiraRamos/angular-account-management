@@ -5,9 +5,7 @@ import { RouteGuardService } from './route-guard.service';
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule
-  ],
-  providers: [MainGuardService, RouteGuardService]
+  imports: [CommonModule],
+  providers: [MainGuardService, RouteGuardService],
 })
-export class GuardServiceModule { }
+export class GuardServiceModule {}

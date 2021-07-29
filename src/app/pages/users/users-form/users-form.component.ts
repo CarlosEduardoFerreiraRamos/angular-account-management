@@ -27,10 +27,9 @@ class FormData {
 @Component({
   selector: 'app-users-form',
   templateUrl: './users-form.component.html',
-  styleUrls: ['./users-form.component.scss']
+  styleUrls: ['./users-form.component.scss'],
 })
 export class UsersFormComponent implements AfterViewInit {
-
   user: Account;
 
   title: string;
@@ -41,31 +40,33 @@ export class UsersFormComponent implements AfterViewInit {
 
   pageState: string;
 
-  @ViewChild(FormComponent, {static: false}) form: FormComponent;
+  @ViewChild(FormComponent, { static: false }) form: FormComponent;
 
   constructor(
     private _activateRout: ActivatedRoute,
     private _service: UserService,
     private _router: Router
-    ) { }
+  ) {}
 
   ngAfterViewInit() {
     this.fetchData();
   }
 
   onSave() {
-    this.isLoading = true
+    this.isLoading = true;
     if (this.pageState === 'NEW_USER') {
       const values = this.form.form.control.value;
-      this._service.create(values)
-        .pipe(finalize( () => this.isLoading = false))
-        .subscribe( () => this.success = true);
+      this._service
+        .create(values)
+        .pipe(finalize(() => (this.isLoading = false)))
+        .subscribe(() => (this.success = true));
     } else {
       const values = this.form.form.control.value;
-      const data: any = {...this.user, ...values}
-      this._service.patch(data)
-        .pipe(finalize( () => this.isLoading = false))
-        .subscribe( () => this.success = true);
+      const data: any = { ...this.user, ...values };
+      this._service
+        .patch(data)
+        .pipe(finalize(() => (this.isLoading = false)))
+        .subscribe(() => (this.success = true));
     }
   }
 
@@ -74,20 +75,24 @@ export class UsersFormComponent implements AfterViewInit {
   }
 
   onDelete() {
-    this._service.remove(this.user.id).subscribe( () => this._router.navigate(['']))
+    this._service
+      .remove(this.user.id)
+      .subscribe(() => this._router.navigate(['']));
   }
 
   get isFormValid(): boolean {
-      return !!this.form && this.form.form.control.status !== 'VALID'
+    return !!this.form && this.form.form.control.status !== 'VALID';
   }
 
   private async fetchData(): Promise<void> {
-    const {newUser, account} = await this._activateRout.data.pipe(first()).toPromise();
+    const { newUser, account } = await this._activateRout.data
+      .pipe(first())
+      .toPromise();
     this.user = account;
     this.title = account ? account.name : 'New user';
     this.pageState = newUser ? 'NEW_USER' : 'EDIT_USER';
     if (!newUser) {
-      const data = new FormData(this.user)
+      const data = new FormData(this.user);
       this.form.form.control.setValue(data);
     }
   }

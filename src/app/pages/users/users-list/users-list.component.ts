@@ -9,22 +9,22 @@ import { Account } from '../../../models';
 @Component({
   selector: 'app-users-list',
   templateUrl: './users-list.component.html',
-  styleUrls: ['./users-list.component.scss']
+  styleUrls: ['./users-list.component.scss'],
 })
 export class UsersListComponent implements OnInit {
-
   isUserAdmin: boolean;
 
   users$: Observable<Account[]>;
 
-  @ViewChild(FormComponent, {static: false}) f: FormComponent;
+  @ViewChild(FormComponent, { static: false }) f: FormComponent;
 
   private _userList$ = new BehaviorSubject<Account[]>([]);
 
   constructor(
     private _service: UserService,
     private _auth: AuthService,
-    private _router: Router) { }
+    private _router: Router
+  ) {}
 
   ngOnInit() {
     this.setUser();
@@ -49,7 +49,7 @@ export class UsersListComponent implements OnInit {
   }
 
   private initLists(): void {
-    this.users$ = this._userList$.asObservable()
+    this.users$ = this._userList$.asObservable();
   }
 
   private setUser(): void {
@@ -57,7 +57,8 @@ export class UsersListComponent implements OnInit {
   }
 
   private fetchAccounts(filters?: any): void {
-    this._service.getAll(filters).subscribe( acconts => this._userList$.next(acconts))
+    this._service
+      .getAll(filters)
+      .subscribe((acconts) => this._userList$.next(acconts));
   }
-
 }
