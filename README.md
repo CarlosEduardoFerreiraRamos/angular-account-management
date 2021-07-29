@@ -26,6 +26,10 @@ This application don't posess any real back end. It utilizes Angulars https-inte
 
 There are three components with tests and a service. The tests may be run using the command `npm test`.
 
+## Git hooks
+
+https://typicode.github.io/husky/#/
+
 ## Continuous Integration
 
 The project possess a test pipeline and a production pipeline. The former is fired when alterations or new features are pushed to the master branch, and the latter when a pull resquest is made to the production branch.
