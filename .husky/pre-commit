@@ -1,5 +1,14 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
+HUSKY_FOLDER=".husky"
+
 # npm run test:ci
-return -1
+LIST= eval "git diff --name-only --cached";
+
+if [ $HUSKY_FOLDER = $HUSKY_FOLDER ]; then
+  echo "something"
+fi
+
+echo "$LIST"
+return 0
